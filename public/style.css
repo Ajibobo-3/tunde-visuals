@@ -1,0 +1,552 @@
+/* public/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #1a1a1a;
+    --gold: #d4af37;
+    --text-main: #f0f0f0;
+    --text-muted: #a0a0a0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    padding: 20px 40px;
+    background: rgba(10, 10, 10, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover { color: var(--gold); }
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #222 0%, #0a0a0a 70%);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin: 0;
+    
+    /* The Gradient Background */
+    background: -webkit-linear-gradient(var(--text-main), var(--text-muted));
+    
+    /* The Fix: Add the standard 'background-clip' below the webkit one */
+    -webkit-background-clip: text;
+    background-clip: text; 
+    
+    /* Makes the text transparent so the background shows through */
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.cta-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Carousel Section */
+.carousel-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.carousel-slide {
+    display: none;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    align-items: end; /* Align text to bottom */
+}
+
+.carousel-slide.active { display: flex; }
+
+.slide-content {
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Services Grid */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 40px;
+    border: 1px solid #333;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* Forms */
+input, select {
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Fixes width issues */
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+button {
+    background: var(--gold);
+    color: black;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* public/style.css - Add to the bottom */
+
+/* Portfolio Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    border-color: var(--gold);
+}
+
+/* public/style.css */
+
+.placeholder-img {
+    width: 100%;
+    height: 250px;
+    background: #222;
+    object-fit: cover;        /* Ensures image covers the box */
+    object-position: top;     /* Focuses on the top of the screenshot (header area) */
+    display: block;
+    border-bottom: 1px solid #333;
+}
+
+.item-info {
+    padding: 20px;
+}
+
+.item-info h4 { margin: 0 0 10px 0; color: white; }
+.item-info p { margin: 0; font-size: 0.9rem; color: #aaa; }
+
+/* Sticky Back Button for Portfolio Pages */
+.back-nav {
+    padding: 20px 40px;
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.back-nav:hover { color: var(--gold); }
+/* public/style.css - Add this to the bottom */
+
+/* --- Contact Page Styles --- */
+.contact-hero {
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contact-card {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    padding: 40px;
+    border: 1px solid #333;
+    text-align: center;
+    transition: 0.4s ease;
+    border-radius: 4px; /* Slight rounded corners */
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.contact-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-link {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+}
+
+.contact-link:hover {
+    color: var(--gold);
+}
+
+/* Specific button style for the main WhatsApp CTA */
+.whatsapp-gold-btn {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.whatsapp-gold-btn:hover {
+    background: var(--gold);
+    color: black;
+}
+/* Style for the QR Code */
+.qr-style {
+    width: 160px; /* Perfect size for scanning */
+    height: auto;
+    margin-top: 15px;
+    border-radius: 10px; /* Smooth corners */
+    border: 5px solid white; /* A nice white frame to make it pop */
+    transition: transform 0.3s ease;
+}
+
+.qr-style:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+/* --- CENTERED PAYMENT PAGE STYLES --- */
+
+.payment-body {
+    background-color: #050505; /* Very dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.payment-nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.payment-nav a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.payment-nav a:hover {
+    color: #fff;
+}
+
+/* The Elegant Center Card */
+.payment-card {
+    background: #111;
+    width: 100%;
+    max-width: 400px; /* Limits width so it stays small */
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid #222;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.card-header h2 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.card-header p {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Compact Service Buttons */
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.service-btn {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 10px 5px;
+    border-radius: 8px;
+    color: #ccc;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.service-btn:hover {
+    background: #222;
+}
+
+.service-btn span {
+    font-size: 1.2rem;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    color: #888;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #bfa472; /* Gold Focus */
+}
+
+/* Pay Button */
+.pay-btn {
+    width: 100%;
+    padding: 14px;
+    background: #bfa472;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+.pay-btn:hover {
+    transform: scale(1.02);
+    background: #cbb282;
+}
+
+.secure-badge {
+    margin-top: 20px;
+    color: #444;
+    font-size: 0.7rem;
+}
+/* --- GLASS SLIDER STYLES --- */
+
+.carousel-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* The Glass Container */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 300px; /* Fixed height for consistency */
+    
+    /* Glassmorphism Magic */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+/* The Slides */
+.carousel-slide {
+    display: none; /* Hidden by default, JS turns it on */
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.slide-content h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+/* The Buttons (Previous/Next) */
+.slider-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }

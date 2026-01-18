@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Tunde_Visuals</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body class="payment-body"> <nav class="payment-nav">
+        <a href="index.html">← Back to Home</a>
+    </nav>
+
+    <div class="payment-card">
+        <div class="card-header">
+            <h2>Secure Payment</h2>
+            <p>Select service & enter amount.</p>
+        </div>
+
+        <div class="service-row">
+            <div class="service-btn" onclick="selectService('Web', this)">
+                <span>🌐</span> Web
+            </div>
+            <div class="service-btn" onclick="selectService('Motion', this)">
+                <span>🎬</span> Motion
+            </div>
+            <div class="service-btn" onclick="selectService('Graphics', this)">
+                <span>🎨</span> Graphics
+            </div>
+        </div>
+
+        <form id="paymentForm" onsubmit="payWithPaystack(event)">
+            <input type="hidden" id="service-type" required>
+
+            <div class="input-group">
+                <label>Amount (₦)</label>
+                <input type="number" id="amount" placeholder="e.g. 50000" required>
+            </div>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="full-name" placeholder="Your Name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email-address" placeholder="email@example.com" required>
+            </div>
+
+            <button type="submit" class="pay-btn">Pay Now 🔒</button>
+        </form>
+        
+        <div class="secure-badge">
+            <small>Secured by Paystack</small>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
