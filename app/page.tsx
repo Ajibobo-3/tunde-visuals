@@ -1,8 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ChevronRight, Zap, MessageSquare } from 'lucide-react';
-// Import Link for internal navigation
+import { ExternalLink, ChevronRight, Zap, MessageSquare, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 
 const projects = [
@@ -41,7 +40,7 @@ export default function Home() {
               <p className="text-slate-400 leading-relaxed text-lg">
                 I am a Website Landing Page Developer and Graphics Designer. Currently balancing my passion for digital architecture with my journey as a medical student. 
               </p>
-              {/* Pointing to Contact Page */}
+              {/* BUTTON 1: Consultation/Contact */}
               <Link href="/contact">
                 <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-400 transition-colors w-fit">
                   Get in Touch <MessageSquare size={16} />
@@ -97,12 +96,12 @@ export default function Home() {
           <Zap className="text-blue-500 mx-auto mb-6" size={48} />
           <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-6 tracking-tighter">Ready to Build?</h2>
           <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto uppercase tracking-widest text-[10px] font-bold">
-            Standardizing the visual identity of Web3.
+            Secure your spot in the build queue via Paystack.
           </p>
-          {/* Pointing to Contact Page */}
-          <Link href="/contact">
-            <button className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-              Contact Me
+          {/* BUTTON 2: CHANGED TO /PAY FOR PAYSTACK LINK */}
+          <Link href="/pay">
+            <button className="flex items-center gap-3 mx-auto bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)]">
+              Start Project <CreditCard size={18} />
             </button>
           </Link>
         </div>
