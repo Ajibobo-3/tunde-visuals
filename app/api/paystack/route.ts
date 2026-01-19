@@ -2,22 +2,29 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    // 1. Parse and validate the incoming body
+    const body = await request.json().catch(() => ({}));
     const { amount, email } = body;
 
-    // 1. Validation check
-    if (!amount || !email) {
-      return NextResponse.json({ error: "Missing amount or email" }, { status: 400 });
+    // 2. Extra strict validation to prevent 400 errors
+    if (!amount || isNaN(Number(amount))) {
+      return NextResponse.json({ error: "A valid numeric amount is required" }, { status: 400 });
+    }
+    if (!email || !email.includes('@')) {
+      return NextResponse.json({ error: "A valid customer email is required" }, { status: 400 });
     }
 
-    // 2. Secret Key check
+    // 3. Secret Key check
     const secretKey = process.env.PAYSTACK_SECRET_KEY;
     if (!secretKey) {
       console.error("CRITICAL: PAYSTACK_SECRET_KEY is missing in Vercel Settings");
-      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+      return NextResponse.json({ error: "Server configuration error - missing keys" }, { status: 500 });
     }
 
-    // 3. Initialize Transaction with Paystack
+    // 4. Initialize Transaction with Paystack
+    // Paystack expects amount in Kobo (Naira * 100) as an INTEGER
+    const amountInKobo = Math.round(Number(amount) * 100);
+
     const response = await fetch('https://api.paystack.co/transaction/initialize', {
       method: 'POST',
       headers: {
@@ -25,16 +32,21 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        amount: Math.round(amount * 100), // Ensures it is a clean integer in Kobo
+        amount: amountInKobo,
         email: email,
-        // UPDATED: Points to your live Vercel domain instead of localhost
+        // Ensure this URL matches your project exactly
         callback_url: "https://visuals-by-tunde.vercel.app/success", 
         metadata: {
           custom_fields: [
             {
               display_name: "Service Type",
               variable_name: "service_type",
-              value: "Web3 Landing Page Deployment"
+              value: "Web3 Architecture"
+            },
+            {
+              display_name: "Developer",
+              variable_name: "developer",
+              value: "Tunde"
             }
           ]
         }
@@ -43,17 +55,19 @@ export async function POST(request: Request) {
 
     const data = await response.json();
 
+    // 5. Handle Paystack API errors (e.g., invalid keys or declined limits)
     if (!response.ok || !data.status) {
-      console.error("Paystack API Error:", data.message);
+      console.error("Paystack API Error:", data.message || "Unknown Paystack Error");
       return NextResponse.json({ 
-        error: data.message || "Paystack initialization failed" 
+        error: data.message || "Paystack failed to initialize" 
       }, { status: 400 });
     }
 
+    // 6. Return the authorization_url to the frontend
     return NextResponse.json(data.data);
 
   } catch (error: any) {
-    console.error("Detailed Payment Error:", error.message);
+    console.error("Internal Crash Error:", error.message);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
