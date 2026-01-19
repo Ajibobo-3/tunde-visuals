@@ -7,6 +7,13 @@ import Image from 'next/image';
 
 const projects = [
   {
+    title: "Harbor V2",
+    client: "Harbor Ecosystem",
+    desc: "A refined evolution of the Harbor interface, featuring enhanced liquidity tracking and a high-performance UI.",
+    link: "/landing-pages/Harbor V2/index.html",
+    color: "from-indigo-600 to-purple-500"
+  },
+  {
     title: "Boop Terminal",
     client: "$BOOP (Arbitrum)",
     desc: "Interactive community terminal with live boop counter and reward verification.",
@@ -42,7 +49,6 @@ const projects = [
     color: "from-slate-700 to-slate-500"
   }
 ];
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#050505] text-white">
