@@ -36,7 +36,7 @@ export async function POST(request: Request) {
         amount: amountInKobo,
         email: email,
         // UPDATED: Pointing to your current working deployment URL
-        callback_url: "https://tunde_visuals.vercel.app/success", 
+        callback_url: "https://tundevisuals.vercel.app/success", 
         metadata: {
           custom_fields: [
             {
