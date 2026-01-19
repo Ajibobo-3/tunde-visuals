@@ -38,7 +38,7 @@ const projects = [
     title: "Aviators Experience",
     client: "Travel & Aviation",
     desc: "Exclusive travel landing page designed for luxury aviation and premium experiences.",
-    link: "/landing-pages/Aviators/index.html",
+    link: "/landing-pages/aviators/index.html",
     color: "from-slate-700 to-slate-500"
   }
 ];
