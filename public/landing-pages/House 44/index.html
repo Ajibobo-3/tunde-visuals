@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House 44 | Luxury Apartments Oregun</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- BOUTIQUE LUXURY VARIABLES --- */
+        :root {
+            --forest-green: #1B2A26;
+            --copper: #C18A6C;
+            --copper-light: #dcb39c;
+            --slate: #F2F3F4;
+            --charcoal: #111111;
+            --font-display: 'Bodoni Moda', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--slate);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            color: var(--forest-green);
+        }
+
+        h1 { font-size: 4.5rem; line-height: 1.1; letter-spacing: -1px; }
+        h2 { font-size: 3rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; letter-spacing: 0.5px; }
+        
+        p { font-weight: 300; color: #4a4a4a; font-size: 1.05rem; }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--copper);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding { padding: 8rem 0; }
+        .bg-white { background-color: white; }
+        .bg-dark { background-color: var(--forest-green); color: white; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: var(--forest-green);
+            color: white;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: var(--copper);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::after { height: 100%; }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--forest-green);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 2rem 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: white;
+            font-style: italic;
+        }
+
+        .menu-link {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .menu-link:hover { opacity: 1; color: var(--copper); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(27, 42, 38, 0.4), rgba(27, 42, 38, 0.4)), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding-left: 5%;
+            color: white;
+        }
+
+        .hero-content h1 { margin-bottom: 2rem; }
+
+        /* --- INTRO / ABOUT --- */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-img-wrapper {
+            position: relative;
+        }
+
+        .intro-img {
+            width: 90%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .intro-accent {
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            background: var(--copper);
+            padding: 2rem;
+            color: white;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            width: 200px;
+            text-align: center;
+        }
+
+        /* --- APARTMENTS --- */
+        .apartments { background-color: #fff; }
+
+        .apartment-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2px; /* Thin gap for sleek look */
+        }
+
+        .suite-card {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            group: cursor;
+        }
+
+        .suite-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s;
+        }
+
+        .suite-card:hover .suite-img { transform: scale(1.05); }
+
+        .suite-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(20px);
+            opacity: 0.9;
+            transition: all 0.4s;
+        }
+
+        .suite-card:hover .suite-overlay { transform: translateY(0); opacity: 1; }
+
+        .price {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 1.1rem;
+            color: var(--copper-light);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* --- AMENITIES LIST --- */
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 4rem;
+        }
+
+        .amenity-item {
+            padding: 2rem;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        
+        .amenity-item:last-child { border-right: none; }
+
+        .amenity-item i {
+            font-size: 1.5rem;
+            color: var(--copper);
+            margin-bottom: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0b1210;
+            color: #666;
+            padding: 4rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .amenities-list { grid-template-columns: 1fr 1fr; }
+            .apartment-showcase { grid-template-columns: 1fr; }
+            .nav-flex { flex-direction: column; }
+            .menu-link { margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo">HOUSE 44</div>
+            <div class="menu">
+                <a href="#" class="menu-link">Residences</a>
+                <a href="#" class="menu-link">Dining</a>
+                <a href="#" class="menu-link">Location</a>
+                <a href="#" class="menu-link" style="color: var(--copper);">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="subtitle" style="color: white; opacity: 0.8;">Oregun, Ikeja</span>
+                <h1>Your Private Residence in the City.</h1>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 3rem; max-width: 500px;">
+                    Experience the autonomy of apartment living combined with the luxury of 5-star hospitality.
+                </p>
+                <a href="#" class="btn btn-primary">Check Availability</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding bg-white">
+        <div class="container intro-grid">
+            <div class="intro-text">
+                <span class="subtitle">The Concept</span>
+                <h2>More Than A Room. <br>A Living Space.</h2>
+                <p>
+                    House 44 is designed for the traveler who requires more. Located on Kadiri Street, Oregun, we offer spacious apartments featuring fully equipped kitchens, dedicated workspaces, and expansive living areas.
+                </p>
+                <br>
+                <p>
+                    Whether you are in Lagos for a long-term project or a weekend retreat, House 44 provides the privacy of home with the polish of a luxury hotel.
+                </p>
+                <div style="margin-top: 3rem;">
+                    <a href="#" style="color: var(--forest-green); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--forest-green); padding-bottom: 5px;">Discover Our Story</a>
+                </div>
+            </div>
+            <div class="intro-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1505693416388-b0346ef41439?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="House 44 Interior" class="intro-img">
+                <div class="intro-accent">
+                    Since<br>2023
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="apartments">
+        <div class="container" style="padding-bottom: 2rem; padding-top: 4rem;">
+            <span class="subtitle">Accommodations</span>
+            <h2 style="margin-bottom: 1rem;">The Residences</h2>
+        </div>
+        
+        <div class="apartment-showcase">
+            <div class="suite-card">
+                <div class="suite-img" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="suite-overlay">
+                    <h3>The Studio Loft</h3>
+                    <p style="color: #ddd; font-size: 0.9rem;">Perfect for the solo executive.</p>
+                    <span class="price">From ₦112,815 / night</span>
+                </div>
+            </div>
+
+            <div class="suite-card">
+                <div class="suite-img" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="suite-overlay">
+                    <h3>One Bedroom Apartment</h3>
+                    <p style="color: #ddd; font-size: 0.9rem;">Separate living area and full kitchenette.</p>
+                    <span class="price">From ₦135,000 / night</span>
+                </div>
+            </div>
+
+            <div class="suite-card">
+                <div class="suite-img" style="background-image: url('https://images.unsplash.com/photo-1484154218962-a1c002085d2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="suite-overlay">
+                    <h3>The Penthouse</h3>
+                    <p style="color: #ddd; font-size: 0.9rem;">Panoramic views of Oregun.</p>
+                    <span class="price">Inquire for Pricing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-dark">
+        <div class="container text-center">
+            <span class="subtitle" style="color: var(--copper);">Amenities</span>
+            <h2 style="color: white;">Designed for Living</h2>
+            <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">
+                We understand that true luxury lies in the details.
+            </p>
+
+            <div class="amenities-list">
+                <div class="amenity-item">
+                    <i class="fas fa-utensils"></i>
+                    <h4 style="font-family: var(--font-display);">Chef's Kitchen</h4>
+                    <small style="color: #888;">In every apartment</small>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-wifi"></i>
+                    <h4 style="font-family: var(--font-display);">Fiber Internet</h4>
+                    <small style="color: #888;">High-speed connection</small>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-car"></i>
+                    <h4 style="font-family: var(--font-display);">Secure Parking</h4>
+                    <small style="color: #888;">24/7 Surveillance</small>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h4 style="font-family: var(--font-display);">Concierge</h4>
+                    <small style="color: #888;">At your service</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="intro-grid">
+                <div>
+                    <span class="subtitle">Location</span>
+                    <h2>44 Kadiri Street</h2>
+                    <p>Situated in the quiet, accessible neighborhood of Oregun, Ikeja. Minutes from the Secretariat and the City Mall, yet tucked away for peace.</p>
+                    <p><strong>0808 149 3571</strong></p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Get Directions</a>
+                </div>
+                <div style="background: #f4f4f4; height: 300px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd;">
+                    <span style="color: #999; text-transform: uppercase; letter-spacing: 2px;">Map Visualization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <span class="logo" style="color: var(--forest-green); font-size: 1.5rem;">HOUSE 44</span>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">
+                    &copy; 2026 House 44 Hotel & Apartments.<br>
+                    All Rights Reserved.
+                </p>
+            </div>
+            <div style="text-align: right;">
+                <a href="#" style="color: var(--charcoal); margin-left: 1rem;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--charcoal); margin-left: 1rem;"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonap Hotels & Suites | Osogbo</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --primary: #C5A059; /* Luxury Gold */
+            --secondary: #1a1a1a; /* Dark Luxury Grey */
+            --white: #ffffff;
+            --light-grey: #f4f4f4;
+            --accent: #FF5722; /* Call to Action Orange */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        html { scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover { color: var(--primary); transition: 0.3s; }
+
+        .btn-book {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.6rem 1.5rem;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-book:hover { background: var(--white); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-hero-primary {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .btn-hero-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* --- AMENITIES BAR --- */
+        .amenities-bar {
+            background: var(--light-grey);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .amenity-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .amenity-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+        /* --- ROOMS SECTION --- */
+        .section { padding: 4rem 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--secondary); }
+        .subtitle { display: block; font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem; font-weight: bold; text-align: center;}
+
+        .room-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .room-img {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+        }
+
+        .room-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .room-info {
+            flex: 1;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .room-price {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .room-features li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        /* --- LOCATION / MAP --- */
+        .location-section {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .address-box {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .room-card { flex-direction: column; }
+            .room-img { height: 250px; }
+            .hero-btn-group { flex-direction: column; width: 100%; }
+            .btn-hero-primary, .btn-hero-secondary { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Sonap Hotels</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#rooms">Rooms</a>
+            <a href="#amenities">Amenities</a>
+            <a href="#contact">Location</a>
+        </div>
+        <a href="tel:09030023587" class="btn-book">Book Now</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Luxury Comfort in <br>The Heart of Osogbo</h1>
+        <p>Experience our 3-Star hospitality on Ikirun Road. Free Wi-Fi, Pool, and 24/7 Power.</p>
+        <div class="hero-btn-group">
+            <a href="tel:09030023587" class="btn-hero-primary">Call for Reservations</a>
+            <a href="#rooms" class="btn-hero-secondary">View Prices</a>
+        </div>
+    </section>
+
+    <section class="amenities-bar" id="amenities">
+        <span class="subtitle">WHY STAY WITH US</span>
+        <h2 style="margin-bottom: 2rem;">World Class Amenities</h2>
+        <div class="amenities-grid">
+            <div class="amenity-item">
+                <span class="amenity-icon">🏊‍♂️</span>
+                <h3>Swimming Pool</h3>
+                <p>Relax in our clean outdoor pool.</p>
+            </div>
+            <div class="amenity-item">
+                <span class="amenity-icon">📶</span>
+                <h3>Free Wi-Fi</h3>
+                <p>High-speed internet for all guests.</p>
+            </div>
+            <div class="amenity-item">
+                <span class="amenity-icon">❄️</span>
+                <h3>AC Rooms</h3>
+                <p>Fully air-conditioned suites.</p>
+            </div>
+            <div class="amenity-item">
+                <span class="amenity-icon">🍳</span>
+                <h3>Free Breakfast</h3>
+                <p>Start your day with a hot meal.</p>
+            </div>
+            <div class="amenity-item">
+                <span class="amenity-icon">🅿️</span>
+                <h3>Secure Parking</h3>
+                <p>Ample space for your vehicle.</p>
+            </div>
+            <div class="amenity-item">
+                <span class="amenity-icon">🧺</span>
+                <h3>Laundry</h3>
+                <p>Professional laundry services.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="rooms">
+        <span class="subtitle">ACCOMMODATION</span>
+        <h2 class="section-title">Our Rooms & Suites</h2>
+
+        <div class="room-card">
+            <div class="room-img">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1350&q=80" alt="Standard Room">
+            </div>
+            <div class="room-info">
+                <h3>Standard Executive</h3>
+                <p style="margin-bottom: 1rem;">Perfect for business travelers. Enjoy a comfortable queen-size bed and workstation.</p>
+                <div class="room-price">₦ 20,000 <span style="font-size: 1rem; color: #666; font-weight: normal;">/ night</span></div>
+                <ul class="room-features">
+                    <li>✓ Queen Size Bed</li>
+                    <li>✓ Air Conditioning</li>
+                    <li>✓ Flat Screen TV</li>
+                    <li>✓ Room Service</li>
+                </ul>
+                <br>
+                <a href="tel:09030023587" class="btn-book" style="background: var(--secondary); color: white;">Check Availability</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <div class="room-img">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1350&q=80" alt="Royal Suite">
+            </div>
+            <div class="room-info">
+                <h3>Royal Suite</h3>
+                <p style="margin-bottom: 1rem;">Experience true luxury with extra space, a seating area, and premium amenities.</p>
+                <div class="room-price">₦ 35,000 <span style="font-size: 1rem; color: #666; font-weight: normal;">/ night</span></div>
+                <ul class="room-features">
+                    <li>✓ King Size Bed</li>
+                    <li>✓ Lounge Area</li>
+                    <li>✓ Private Balcony</li>
+                    <li>✓ Complimentary Breakfast</li>
+                </ul>
+                <br>
+                <a href="tel:09030023587" class="btn-book" style="background: var(--secondary); color: white;">Check Availability</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section" id="contact">
+        <h2 style="margin-bottom: 2rem;">Find Us</h2>
+        <div class="address-box">
+            <p><strong>📍 Address:</strong> 1 Along Ikirun Road, Osogbo 230104, Osun</p>
+            <p style="margin-top: 10px;"><strong>📞 Phone:</strong> 0903 002 3587</p>
+        </div>
+        
+        <a href="

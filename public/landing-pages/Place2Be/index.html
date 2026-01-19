@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place2be Hotel & Suites | Alimosho's Finest</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- LUXURY VARIABLES --- */
+        :root {
+            --navy: #0F172A;
+            --navy-light: #1E293B;
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --white: #ffffff;
+            --text-grey: #64748B;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Poppins', sans-serif;
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--navy);
+            background-color: #F8FAFC;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        p { color: var(--text-grey); margin-bottom: 1.5rem; font-weight: 300; }
+
+        .gold-text { color: var(--gold); }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: 5rem 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .text-center { text-align: center; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid var(--gold);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-gold:hover {
+            background-color: #bfa030;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--navy);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .logo span { color: var(--gold); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            margin-top: 60px;
+        }
+
+        .hero h1 { color: var(--white); }
+        .hero p { color: #e2e8f0; font-size: 1.2rem; max-width: 600px; }
+
+        /* --- AMENITIES GRID --- */
+        .amenities { background: var(--navy); color: var(--white); }
+        .amenities h2 { color: var(--white); }
+        .am-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .am-item {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .am-item:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); }
+        .am-item i { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+        .am-item h4 { color: var(--white); font-family: var(--font-sans); margin-bottom: 0.5rem; }
+
+        /* --- ROOMS --- */
+        .room-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        .room-img { height: 280px; background-size: cover; background-position: center; }
+        .room-content { padding: 2rem; }
+        .price-tag {
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+            display: block;
+            margin: 1rem 0;
+        }
+        .price-tag small { font-size: 0.9rem; font-weight: 400; color: var(--text-grey); }
+
+        /* --- LOCATION --- */
+        .location-box {
+            background: var(--white);
+            padding: 3rem;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.9);
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--white);
+            padding: 3rem; width: 90%; max-width: 500px;
+            border-radius: 8px; position: relative;
+        }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--navy); }
+        
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-input {
+            width: 100%; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 4px;
+            font-family: var(--font-sans);
+        }
+        .form-input:focus { outline: none; border-color: var(--gold); }
+
+        /* --- FLOATING WHATSAPP --- */
+        .fab {
+            position: fixed; bottom: 20px; right: 20px;
+            background-color: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999; text-decoration: none; transition: transform 0.3s;
+        }
+        .fab:hover { transform: scale(1.1); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            h1 { font-size: 2.8rem; }
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+            .hero { text-align: center; justify-content: center; }
+            .hero p { margin: 0 auto 2rem auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo">Place<span>2Be</span></div>
+            <button onclick="openModal()" class="btn btn-gold" style="padding: 0.7rem 1.5rem;">Book Now</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h4 style="color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem;">Ipaja, Lagos</h4>
+            <h1>The Crown Jewel <br>of Alimosho.</h1>
+            <p>Experience the perfect blend of comfort and class at Moshalashi Roundabout. Poolside relaxation, exquisite dining, and premium suites.</p>
+            <div style="margin-top: 2rem;">
+                <button onclick="openModal()" class="btn btn-gold">Check Availability</button>
+                <a href="#rooms" class="btn btn-outline" style="border-color: white; color: white; margin-left: 10px;">View Rooms</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container grid-2">
+            <div>
+                <h4 class="gold-text" style="margin-bottom: 0.5rem;">Welcome</h4>
+                <h2>Where Comfort <br>Meets Convenience</h2>
+                <div style="width: 60px; height: 3px; background: var(--gold); margin-bottom: 1.5rem;"></div>
+                <p>Strategically located at the Ipaja Road Roundabout, Place2Be Hotel is more than just a stay—it's a landmark. Whether you are navigating the bustle of Alimosho or seeking a weekend hideaway, we offer a serene escape.</p>
+                <p>With prices starting from <strong>₦27,500</strong>, luxury is now within reach.</p>
+            </div>
+            <div style="position: relative;">
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" style="width: 100%; border-radius: 8px; box-shadow: -20px 20px 0 var(--gold);" alt="Hotel Interior">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding amenities">
+        <div class="container text-center">
+            <h2>Premium Amenities</h2>
+            <p style="color: rgba(255,255,255,0.7);">Designed for your total relaxation.</p>
+            
+            <div class="am-grid">
+                <div class="am-item">
+                    <i class="fas fa-water"></i>
+                    <h4>Swimming Pool</h4>
+                    <small>Outdoor relaxation</small>
+                </div>
+                <div class="am-item">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Restaurant</h4>
+                    <small>Local & Continental</small>
+                </div>
+                <div class="am-item">
+                    <i class="fas fa-wifi"></i>
+                    <h4>Free Wi-Fi</h4>
+                    <small>High-speed internet</small>
+                </div>
+                <div class="am-item">
+                    <i class="fas fa-parking"></i>
+                    <h4>Secure Parking</h4>
+                    <small>Gated & Guarded</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="rooms">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <h2>Accommodation</h2>
+                <p>Select your level of luxury.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Standard Comfort</h3>
+                        <p>Perfect for the solo traveler or quick business stay.</p>
+                        <span class="price-tag">₦27,500 <small>/ night</small></span>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; color: var(--text-grey); font-size: 0.9rem;">
+                            <li><i class="fas fa-check gold-text"></i> Air Conditioning</li>
+                            <li><i class="fas fa-check gold-text"></i> Flat Screen TV</li>
+                            <li><i class="fas fa-check gold-text"></i> Room Service</li>
+                        </ul>
+                        <button onclick="openModal()" class="btn btn-outline" style="width: 100%;">Book Standard</button>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-f33efe29a79d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Executive Suite</h3>
+                        <p>Spacious living area for those who demand the best.</p>
+                        <span class="price-tag">₦94,943 <small>/ night</small></span>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; color: var(--text-grey); font-size: 0.9rem;">
+                            <li><i class="fas fa-check gold-text"></i> King Size Bed</li>
+                            <li><i class="fas fa-check gold-text"></i> Lounge Access</li>
+                            <li><i class="fas fa-check gold-text"></i> Free Breakfast</li>
+                        </ul>
+                        <button onclick="openModal()" class="btn btn-gold" style="width: 100%;">Book Executive</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #fff;">
+        <div class="container grid-2">
+            <div class="location-box">
+                <h4 class="gold-text">Location</h4>
+                <h3>Find Us Easily</h3>
+                <p>We are located at the Moshalashi Roundabout, making us the most accessible hotel in Ipaja.</p>
+                
+                <div style="margin-top: 1.5rem;">
+                    <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong><br>Moshalashi Roundabout, Ipaja Rd, Alimosho, Lagos</p>
+                    <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong><br>0704 067 4660</p>
+                </div>
+                
+                <a href="https://www.google.com/maps/search/?api=1&query=Place2be+Hotel+and+Suites+Ipaja+Lagos" target="_blank" class="btn btn-gold" style="margin-top: 1rem;">
+                    Get Directions
+                </a>
+            </div>
+            <div style="height: 400px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--text-grey); margin-bottom: 1rem;"></i>
+                    <p>Google Maps Integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--navy); color: var(--text-grey); padding: 3rem 0; text-align: center; font-size: 0.9rem;">
+        <div class="container">
+            <h3 style="color: var(--white); margin-bottom: 1rem;">Place2Be</h3>
+            <p>Luxury within reach.</p>
+            <p>&copy; 2026 Place2Be Hotel and Suites. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">Reservation Request</h3>
+            
+            <form onsubmit="sendToWhatsapp(event)">
+                <div class="form-group">
+                    <label>Guest Name</label>
+                    <input type="text" id="name" class="form-input" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" class="form-input" required placeholder="080...">
+                </div>
+                <div class="form-group">
+                    <label>Room Preference</label>
+                    <select id="room" class="form-input">
+                        <option>Standard Comfort (₦27,500)</option>
+                        <option>Executive Suite (₦94,943)</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Check-in Date</label>
+                    <input type="date" id="date" class="form-input" required>
+                </div>
+                
+                <button type="submit" class="btn btn-gold" style="width: 100%;">Send via WhatsApp</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-grey);">
+                Our concierge will confirm availability instantly.
+            </p>
+        </div>
+    </div>
+
+    <a href="#" onclick="openModal()" class="fab">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function openModal() {
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('bookingModal')) {
+                closeModal();
+            }
+        }
+
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var room = document.getElementById('room').value;
+            var date = document.getElementById('date').value;
+            
+            // Hotel Phone Number (Formatted)
+            var hotelPhone = "2347040674660";
+            
+            var message = `Hello Place2Be, I would like to make a reservation.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Room:* ${room}%0A*Date:* ${date}`;
+            
+            var url = `https://wa.me/${hotelPhone}?text=${message}`;
+            window.open(url, '_blank').focus();
+            
+            closeModal();
+        }
+    </script>
+</body>
+</html>

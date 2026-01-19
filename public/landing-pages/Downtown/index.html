@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownTown Royal Hotel | GRA Ikeja</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ROYAL VARIABLES --- */
+        :root {
+            --royal-purple: #2E0249;
+            --purple-light: #570A82;
+            --gold: #F7C815;
+            --gold-dim: #cfa60c;
+            --white: #ffffff;
+            --off-white: #fdfdfd;
+            --font-head: 'Cinzel', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: #333;
+            background-color: var(--off-white);
+            line-height: 1.6;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            color: var(--royal-purple);
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 3rem; line-height: 1.2; }
+        h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+        
+        .gold-text { color: var(--gold); }
+        .purple-text { color: var(--royal-purple); }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: 5rem 0; }
+        .text-center { text-align: center; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 2px solid var(--gold);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--royal-purple);
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .btn-purple {
+            background-color: var(--royal-purple);
+            color: var(--gold);
+            border-color: var(--royal-purple);
+        }
+
+        .btn-purple:hover {
+            background-color: var(--purple-light);
+            color: white;
+        }
+
+        /* --- NAV --- */
+        nav {
+            background: var(--royal-purple);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-head); font-size: 1.5rem; color: var(--gold); font-weight: 700; }
+
+        /* --- HERO --- */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(46, 2, 73, 0.8), rgba(46, 2, 73, 0.6)), url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero h1 { color: white; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #ddd; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* --- EXCLUSIVE OFFER --- */
+        .offer-bar {
+            background: var(--gold);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--royal-purple);
+        }
+        .price-big { font-size: 2.5rem; font-weight: 700; font-family: var(--font-head); }
+
+        /* --- FEATURES --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2rem; color: var(--royal-purple); margin-bottom: 1rem; }
+
+        /* --- LOCATION --- */
+        .location { background: var(--royal-purple); color: white; }
+        .location h2 { color: var(--gold); }
+        .location p { color: #ccc; }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(46, 2, 73, 0.95);
+            align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background-color: white; padding: 3rem; width: 90%; max-width: 450px;
+            border: 2px solid var(--gold); position: relative;
+        }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--royal-purple); }
+        
+        input, select {
+            width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ccc;
+            font-family: var(--font-body);
+        }
+        input:focus { outline: none; border-color: var(--royal-purple); }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .price-big { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <span class="logo"><i class="fas fa-crown"></i> DownTown Royal</span>
+            <button onclick="openModal()" class="btn btn-gold" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Book Direct</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h3>Ikeja GRA, Lagos</h3>
+            <h1>Experience Royalty <br>Without The Ransom</h1>
+            <p>Situated on Oladipo Bateye Street, the most prestigious address in Ikeja. Enjoy the serenity of the GRA at an unbeatable value.</p>
+            <button onclick="openModal()" class="btn btn-gold">Check Availability</button>
+        </div>
+    </header>
+
+    <div class="offer-bar">
+        <div class="container">
+            <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 2px;">Direct Booking Exclusive</p>
+            <div class="price-big">₦30,000 <span style="font-size: 1rem; font-weight: 400;">/ Night</span></div>
+            <p style="font-size: 0.9rem;">(Save up to ₦50,000 compared to Expedia rates)</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container grid-2">
+            <div>
+                <h2>The GRA Advantage</h2>
+                <div style="width: 50px; height: 3px; background: var(--royal-purple); margin-bottom: 2rem;"></div>
+                <p><strong>DownTown Royal Hotel</strong> is strategically located in the Government Residential Area (GRA) of Ikeja. This means you are surrounded by international restaurants, nightclubs, and high-security zones.</p>
+                <p>Why pay ₦140,000 elsewhere when you can enjoy the same prestigious neighborhood for a fraction of the price?</p>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li><i class="fas fa-check gold-text"></i> Outdoor Swimming Pool</li>
+                    <li><i class="fas fa-check gold-text"></i> Complimentary Breakfast</li>
+                    <li><i class="fas fa-check gold-text"></i> Secure Parking</li>
+                </ul>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" style="width: 100%; border: 5px solid var(--gold);" alt="Pool Area">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #f0f0f0;">
+        <div class="container text-center">
+            <h2>Royal Amenities</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>Comfort Suites</h3>
+                    <p>Spacious rooms designed for rest after a busy day in Lagos.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Connectivity</h3>
+                    <p>Stay connected with our high-speed Wi-Fi service.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-glass-martini-alt"></i>
+                    <h3>Lounge</h3>
+                    <p>Relax by the pool with a drink from our bar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding location">
+        <div class="container grid-2">
+            <div>
+                <h2>Find The Palace</h2>
+                <p>58b Oladipo Bateye Street, off Works Road, Ikeja GRA, Lagos.</p>
+                <br>
+                <p><i class="fas fa-phone-alt gold-text"></i> 0909 915 5696</p>
+                <br>
+                <a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="btn btn-gold">
+                    Get Directions
+                </a>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); height: 300px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gold);">
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--gold);"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #1a0129; color: #888; padding: 2rem 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2026 DownTown Royal Hotel. GRA Ikeja.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h2 class="text-center" style="margin-bottom: 0.5rem;">Royal Reservation</h2>
+            <p class="text-center" style="margin-bottom: 1.5rem; color: #666;">Lock in the ₦30,000 Rate</p>
+            
+            <form onsubmit="sendToWhatsapp(event)">
+                <label>Name</label>
+                <input type="text" id="name" required placeholder="Your Name">
+                
+                <label>Phone</label>
+                <input type="tel" id="phone" required placeholder="090...">
+                
+                <label>Check-in</label>
+                <input type="date" id="date" required>
+                
+                <button type="submit" class="btn btn-purple" style="width: 100%;">Confirm via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('bookingModal')) {
+                closeModal();
+            }
+        }
+
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var date = document.getElementById('date').value;
+            
+            // Hotel Number
+            var hotelPhone = "2349099155696";
+            
+            var message = `Hello DownTown Royal, I want to book the 30k Promo Rate.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Date:* ${date}`;
+            
+            var url = `https://wa.me/${hotelPhone}?text=${message}`;
+            window.open(url, '_blank').focus();
+            
+            closeModal();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-NUTS Lounge & Suites | The Pulse of Oregun</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- HIGH-END NIGHTLIFE VARIABLES --- */
+        :root {
+            --obsidian: #050505;
+            --charcoal: #121212;
+            --amber-glow: #FFBF00; /* Rich Gold/Amber */
+            --amber-dim: #b38600;
+            --text-white: #ffffff;
+            --text-grey: #a0a0a0;
+            --font-head: 'Oswald', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--obsidian);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        h1 { font-size: 5rem; line-height: 1; margin-bottom: 1rem; }
+        h2 { font-size: 3rem; color: var(--text-white); margin-bottom: 1rem; }
+        p { color: var(--text-grey); font-weight: 300; max-width: 600px; }
+
+        .accent-text { color: var(--amber-glow); }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding { padding: 8rem 0; }
+        
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: var(--font-head);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--amber-glow);
+        }
+
+        .btn-fill {
+            background-color: var(--amber-glow);
+            color: var(--obsidian);
+            font-weight: 600;
+        }
+
+        .btn-fill:hover {
+            background-color: transparent;
+            color: var(--amber-glow);
+            box-shadow: 0 0 15px rgba(255, 191, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--amber-glow);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--amber-glow);
+            color: var(--obsidian);
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: white;
+            border: 2px solid var(--amber-glow);
+            padding: 0.2rem 1rem;
+            letter-spacing: 4px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--amber-glow); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .vertical-line {
+            width: 2px;
+            height: 100px;
+            background-color: var(--amber-glow);
+            margin-bottom: 2rem;
+        }
+
+        /* --- FLOATING BOOKING BAR --- */
+        .booking-bar {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--charcoal);
+            padding: 3rem;
+            width: 400px;
+            border-top-left-radius: 4px;
+            border-left: 2px solid var(--amber-glow);
+        }
+
+        .price-display {
+            font-size: 2.5rem;
+            font-family: var(--font-head);
+            color: white;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .price-sub { font-size: 0.9rem; color: var(--text-grey); font-family: var(--font-body); }
+
+        /* --- GRID LAYOUTS --- */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .split-content {
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-img {
+            height: 100%;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- AMENITIES ICONS --- */
+        .icon-grid {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .icon-box i {
+            font-size: 2rem;
+            color: var(--amber-glow);
+            margin-bottom: 1rem;
+        }
+        
+        .icon-box span {
+            display: block;
+            font-family: var(--font-head);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- REVIEWS --- */
+        .review-section {
+            background-color: var(--charcoal);
+            text-align: center;
+        }
+
+        .stars { color: var(--amber-glow); margin-bottom: 1rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid #222;
+            padding: 4rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .split-section { grid-template-columns: 1fr; }
+            .booking-bar { position: relative; width: 100%; bottom: auto; right: auto; }
+            .split-content { padding: 4rem 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="brand">Q-NUTS</div>
+            <div class="nav-links">
+                <a href="#">The Lounge</a>
+                <a href="#">Suites</a>
+                <a href="#">Dining</a>
+                <a href="#" style="color: var(--amber-glow);">Reserve</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="vertical-line"></div>
+                <h3>Oregun, Ikeja</h3>
+                <h1>Luxury <br><span class="accent-text">Lives Here</span></h1>
+                <p>An exclusive sanctuary for the elite. Experience the perfect fusion of high-energy nightlife and opulent rest.</p>
+            </div>
+        </div>
+
+        <div class="booking-bar">
+            <span class="price-sub">Starting from</span>
+            <span class="price-display">₦345,057</span>
+            <span class="price-sub" style="display:block; margin-bottom: 2rem;">Per Night • Breakfast Included</span>
+            <a href="#" class="btn btn-fill" style="width: 100%; text-align: center;">Book Your Stay</a>
+        </div>
+    </header>
+
+    <section class="split-section">
+        <div class="split-content">
+            <h3>Accommodations</h3>
+            <h2>Unmatched Opulence</h2>
+            <div style="width: 60px; height: 3px; background: var(--amber-glow); margin-bottom: 2rem;"></div>
+            <p>
+                Our suites are designed for those who demand the exceptional. Featuring bespoke furnishings, immersive technology, and soundproofing for absolute privacy.
+            </p>
+            <div class="icon-grid">
+                <div class="icon-box">
+                    <i class="fas fa-wifi"></i>
+                    <span>Ultra WiFi</span>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-bed"></i>
+                    <span>King Beds</span>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>24/7 Service</span>
+                </div>
+            </div>
+        </div>
+        <div class="split-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+    </section>
+
+    <section class="split-section">
+        <div class="split-img" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); order: 2;"></div>
+        <div class="split-content" style="order: 1; background-color: #0a0a0a;">
+            <h3>Dining & Nightlife</h3>
+            <h2>The <span class="accent-text">Q Experience</span></h2>
+            <div style="width: 60px; height: 3px; background: var(--amber-glow); margin-bottom: 2rem;"></div>
+            <p>
+                From our renowned BBQ Catfish to our signature cocktails, the Q-Nuts Lounge is the heartbeat of Ikeja. A culinary journey worth every Naira.
+            </p>
+            <br>
+            <p>
+                <em>"It's worth the price, tasty and nice." — Verified Guest</em>
+            </p>
+            <div style="margin-top: 3rem;">
+                <a href="#" class="btn btn-outline">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding review-section">
+        <div class="container">
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <h2 style="font-size: 2.5rem;">4.2 Star Rating</h2>
+            <p style="margin: 0 auto;">Based on 174 Reviews. The preferred choice for Lagos' elite.</p>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: url('https://images.unsplash.com/photo-1496417263034-38ec4f0d6b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover fixed;">
+        <div class="container" style="background: rgba(0,0,0,0.8); padding: 3rem; border: 1px solid #333; max-width: 600px;">
+            <h3>Location</h3>
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">17 Ikosi Rd, Oregun</h2>
+            <p style="margin-bottom: 2rem;">Ideally located for business accessibility and private leisure.</p>
+            <a href="#" class="btn btn-fill">Get Directions</a>
+            <div style="margin-top: 2rem; color: var(--text-grey);">
+                <i class="fas fa-phone-alt" style="color: var(--amber-glow);"></i> 0916 988 2866
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="brand" style="display: inline-block; margin-bottom: 2rem; border: none; font-size: 2rem;">Q-NUTS</div>
+            <div style="margin-bottom: 2rem;">
+                <a href="#" style="color: #666; margin: 0 10px;"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" style="color: #666; margin: 0 10px;"><i class="fab fa-facebook fa-lg"></i></a>
+            </div>
+            <p>&copy; 2026 Q-Nuts Lounge & Suites. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

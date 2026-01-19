@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oragon Hotel and Suites | Luxury in Ogba</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-dark: #1a1a1a;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d4b;
+            --text-light: #f4f4f4;
+            --text-grey: #888888;
+            --bg-offwhite: #f9f9f9;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--primary-dark);
+            background-color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        p {
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .gold-text {
+            color: var(--accent-gold);
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: #fff;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-gold-hover);
+            border-color: var(--accent-gold-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--primary-dark);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .cta-nav {
+            background: var(--accent-gold);
+            color: white;
+            padding: 0.5rem 1.5rem;
+        }
+
+        /* --- HERO SECTION --- */
+        header.hero {
+            height: 100vh;
+            /* Placeholder luxury pool image */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero-content p {
+            color: #ddd;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 2s ease-in;
+        }
+
+        /* --- INTRODUCTION --- */
+        .intro {
+            background-color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .intro-img {
+            flex: 1;
+            min-width: 400px;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .intro-text {
+            flex: 1;
+            padding: 5rem;
+            min-width: 400px;
+        }
+
+        /* --- AMENITIES --- */
+        .amenities {
+            background-color: var(--bg-offwhite);
+            text-align: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .amenity-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .amenity-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ACCOMMODATION --- */
+        .rooms {
+            background: #fff;
+        }
+
+        .room-card {
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .room-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .room-details {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .price {
+            display: block;
+            margin: 1rem 0;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        /* --- LOCATION --- */
+        .location {
+            background-color: var(--primary-dark);
+            color: #fff;
+            text-align: center;
+        }
+
+        .location h2, .location p {
+            color: #fff;
+        }
+
+        .location-grid {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .loc-item {
+            flex: 1;
+            min-width: 250px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111;
+            color: #777;
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .socials {
+            margin: 2rem 0;
+        }
+
+        .socials a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .socials a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+            .intro-text { padding: 3rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">ORAGON</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#suites">Suites</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact" class="cta-nav">Book Stay</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Serenity in the Heart of Ogba</h1>
+            <p>Experience the perfect blend of residential calm and accessibility. <br>Just minutes from the pulse of Ikeja.</p>
+            <div>
+                <a href="#suites" class="btn btn-gold">Check Availability</a>
+                <a href="#amenities" class="btn btn-outline" style="margin-left: 10px;">View Amenities</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="intro-img"></div>
+        <div class="intro-text">
+            <h2>Welcome to Oragon</h2>
+            <div style="width: 50px; height: 3px; background: var(--accent-gold); margin-bottom: 2rem;"></div>
+            <p>Nestled in the vibrant neighborhood of Ojodu, Oragon Hotel & Suites offers a refined escape from the city's bustle. Whether you are visiting for business or leisure, our doors open to a world of comfort and impeccable service.</p>
+            <p>Located just 12km from Murtala Muhammed International Airport, we are the traveler’s preferred haven.</p>
+        </div>
+    </section>
+
+    <section class="amenities section-padding" id="amenities">
+        <div class="container">
+            <h2>Curated Experiences</h2>
+            <p>Designed for the modern traveler.</p>
+            
+            <div class="grid-3">
+                <div class="amenity-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Poolside Lounge</h3>
+                    <p>Dive into relaxation or enjoy a sunset cocktail at our exclusive outdoor pool.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Culinary Delights</h3>
+                    <p>Visit our outdoor bar and grill. Perfect for weekend unwinding.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Seamless Connection</h3>
+                    <p>High-speed complimentary Wi-Fi and 24/7 power supply.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rooms section-padding" id="suites">
+        <div class="container">
+            <h2 style="text-align: center;">Rest Redefined</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">Sanctuaries of calm.</p>
+
+            <div class="grid-3">
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-details">
+                        <h3>Standard Luxury</h3>
+                        <p>Plush bedding and modern amenities.</p>
+                        <span class="price">From ₦63,415 / night</span>
+                        <a href="#" class="btn btn-gold">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1590490360182-f33efe29a79d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-details">
+                        <h3>Executive Suite</h3>
+                        <p>Extra space with premium city views.</p>
+                        <span class="price">From ₦85,000 / night</span>
+                        <a href="#" class="btn btn-gold">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-details">
+                        <h3>Presidential</h3>
+                        <p>The ultimate indulgence in Ogba.</p>
+                        <span class="price">Inquire for rates</span>
+                        <a href="#" class="btn btn-gold">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location section-padding" id="location">
+        <div class="container">
+            <h2>Perfectly Positioned</h2>
+            <div style="width: 50px; height: 3px; background: var(--accent-gold); margin: 0 auto 2rem auto;"></div>
+            
+            <div class="location-grid">
+                <div class="loc-item">
+                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h3>Address</h3>
+                    <p>9 Oluwasijibomi Street,<br>Off Yaya Abatan Rd,<br>Ogba, Ikeja</p>
+                </div>
+                <div class="loc-item">
+                    <i class="fas fa-car" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h3>Proximity</h3>
+                    <p>2 km to Agege Stadium<br>12 km to Int'l Airport</p>
+                </div>
+                <div class="loc-item">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h3>Concierge</h3>
+                    <p>0704 872 0321</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <span class="footer-logo">ORAGON</span>
+            <p>Luxury. Serenity. Ogba.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2026 Oragon Hotel and Suites. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

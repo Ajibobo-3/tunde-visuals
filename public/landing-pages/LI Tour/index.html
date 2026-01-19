@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Li Tour International Hotel | The Jewel of Adeniyi Jones</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- LUXURY CSS VARIABLES --- */
+        :root {
+            --midnight-blue: #0a1f35;
+            --platinum: #e5e5e5;
+            --silver-accent: #a8a9ad;
+            --marble-white: #fcfcfc;
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* --- RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--marble-white);
+            color: var(--midnight-blue);
+            line-height: 1.7;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-title);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--midnight-blue); }
+        p { color: #555; font-weight: 300; margin-bottom: 1.5rem; }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding { padding: 6rem 0; }
+        
+        .text-center { text-align: center; }
+
+        .divider {
+            height: 1px;
+            width: 100px;
+            background: var(--silver-accent);
+            margin: 2rem auto;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .btn-primary {
+            background-color: var(--midnight-blue);
+            color: white;
+            border: 1px solid var(--midnight-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--midnight-blue);
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .btn-ghost:hover {
+            background-color: white;
+            color: var(--midnight-blue);
+            border-color: white;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 31, 53, 0.95);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            color: white;
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 31, 53, 0.7), rgba(10, 31, 53, 0.5)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .hero p {
+            color: #ddd;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        /* --- FEATURES / RATINGS --- */
+        .features {
+            background: white;
+            position: relative;
+            top: -50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .feature-item i {
+            color: var(--midnight-blue);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item span {
+            display: block;
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- ACCOMMODATION --- */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .room-card {
+            background: white;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .room-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        .room-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .room-info { padding: 2rem; }
+
+        .price-tag {
+            color: var(--midnight-blue);
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* --- LOCATION --- */
+        .location-section {
+            background-color: var(--midnight-blue);
+            color: white;
+        }
+
+        .location-section h2, .location-section p { color: white; }
+
+        .loc-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .loc-text { flex: 1; }
+        .loc-map { flex: 1; min-height: 300px; background: #2c3e50; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #050f1a;
+            color: #888;
+            padding: 4rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            color: white;
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .features { flex-direction: column; top: 0; margin: 0 1rem; }
+            .loc-details { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="brand">LI TOUR INTERNATIONAL</div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#rooms">Suites</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#rooms" class="btn" style="border: 1px solid white; color: white; padding: 0.5rem 1.5rem;">Book Now</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="overview">
+        <div class="container">
+            <h3>Welcome to Oba Akran's Finest</h3>
+            <h1>Executive Luxury Redefined</h1>
+            <p>Situated at 54 Adeniyi Jones. A flawless 5-star experience for the discerning traveler.</p>
+            <div class="btn-group">
+                <a href="#rooms" class="btn btn-ghost">View Rates</a>
+                <a href="#location" class="btn btn-ghost" style="margin-left: 15px;">Get Directions</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="features">
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>5.0 Star Rating</span>
+                <small>Based on Guest Reviews</small>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Prime Location</span>
+                <small>Adeniyi Jones, Ikeja</small>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Free Cancellation</span>
+                <small>Flexible Booking</small>
+            </div>
+        </section>
+    </div>
+
+    <section class="section-padding text-center">
+        <div class="container">
+            <h2>The International Standard</h2>
+            <div class="divider"></div>
+            <p style="max-width: 700px; margin: 0 auto;">
+                Li Tour International Hotel brings a touch of world-class hospitality to the industrial heart of Lagos. 
+                Whether you are closing deals in Oba Akran or exploring the city, our doors open to a refined environment 
+                of efficiency and comfort.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #f4f4f4;" id="rooms">
+        <div class="container">
+            <div class="text-center">
+                <h2>Accommodations</h2>
+                <p>Designed for rest. Engineered for comfort.</p>
+            </div>
+
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-info">
+                        <h3>Deluxe King</h3>
+                        <p>Spacious interior with work desk and high-speed Wi-Fi.</p>
+                        <span class="price-tag">₦55,091 <span style="font-size: 0.8rem; font-weight: 300;">/ night</span></span>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;">Reserve Now</a>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-info">
+                        <h3>Executive Suite</h3>
+                        <p>Separate living area for meetings and relaxation.</p>
+                        <span class="price-tag">₦75,000 <span style="font-size: 0.8rem; font-weight: 300;">/ night</span></span>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;">Reserve Now</a>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="room-info">
+                        <h3>Diplomatic</h3>
+                        <p>The pinnacle of luxury on Adeniyi Jones.</p>
+                        <span class="price-tag">Inquire for Rates</span>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1rem; width: 100%; text-align: center;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding location-section" id="location">
+        <div class="container">
+            <div class="loc-details">
+                <div class="loc-text">
+                    <h2>Central Connectivity</h2>
+                    <div style="width: 50px; height: 2px; background: white; margin-bottom: 2rem;"></div>
+                    <p>Located in the Oba Akran neighborhood, we offer immediate access to major corporate headquarters and transit routes.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <p><i class="fas fa-map-pin" style="margin-right: 10px;"></i> 54 Adeniyi Jones, Oba Akran, Lagos 101233</p>
+                        <p><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> 0906 611 1035</p>
+                        <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> reservations@litourhotel.com</p>
+                    </div>
+                </div>
+                <div class="loc-map">
+                    <div style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-map" style="font-size: 3rem; color: #555; margin-bottom: 1rem;"></i>
+                        <h4 style="color: #888;">Map Integration</h4>
+                        <p style="font-size: 0.8rem; color: #888;">54 Adeniyi Jones, Lagos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <span class="footer-brand">LI TOUR INTERNATIONAL</span>
+            <p>Luxury Accommodation in Ikeja.</p>
+            <div style="margin: 2rem 0;">
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2026 Li Tour International Hotel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

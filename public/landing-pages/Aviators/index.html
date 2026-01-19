@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviators Lounge | Ikeja's Best Bar & Grill</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- LOUNGE THEME --- */
+        :root {
+            --bg-dark: #121212;   /* Deep black for nightlife vibe */
+            --bg-card: #1E1E1E;
+            --accent: #E1306C;    /* Neon Pink/Red for energy */
+            --highlight: #00D4FF; /* Neon Blue for "Aviation" feel */
+            --text-light: #EDEDED;
+            --text-gray: #A0A0A0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- NAVBAR --- */
+        nav {
+            background: rgba(18, 18, 18, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--highlight);
+        }
+
+        .order-btn {
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .order-btn:hover { background: #ff4785; box-shadow: 0 0 15px var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 10px;
+            background: -webkit-linear-gradient(45deg, var(--highlight), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .status-badge {
+            background: #2ecc71;
+            color: #000;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* --- INFO GRID --- */
+        .info-bar {
+            background: var(--bg-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 5%;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .info-item h3 { color: var(--highlight); font-size: 1.2rem; margin-bottom: 5px; }
+        .info-item p { font-size: 0.9rem; color: var(--text-gray); }
+
+        /* --- MENU HIGHLIGHTS --- */
+        .menu-section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .menu-card:hover { transform: translateY(-5px); }
+
+        .menu-img {
+            height: 200px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .menu-content { padding: 1.5rem; }
+        .menu-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .price { color: var(--accent); font-weight: bold; font-size: 1.1rem; display: block; margin-top: 10px; }
+
+        /* --- REVIEWS --- */
+        .reviews {
+            background: #181818;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 800px;
+            border-left: 4px solid var(--highlight);
+            text-align: left;
+        }
+
+        .stars { color: #f1c40f; letter-spacing: 3px; }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 3rem 5%;
+            background: black;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-btn {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--highlight);
+            border: 1px solid var(--highlight);
+            padding: 10px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .info-bar { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AVIATORS LOUNGE</div>
+        <a href="tel:08176900613" class="order-btn">Call to Order</a>
+    </nav>
+
+    <section class="hero">
+        <div class="status-badge">OPEN TODAY UNTIL 10 PM</div>
+        <h1>Eat. Drink. Chill.</h1>
+        <p>The ultimate hangout spot in FAAN Quarters. Outdoor seating, cold beer towers, and the best karaoke vibes in Ikeja.</p>
+        <a href="tel:08176900613" class="order-btn" style="padding: 15px 30px; font-size: 1.2rem;">Reserve a Table</a>
+    </section>
+
+    <div class="info-bar">
+        <div class="info-item">
+            <h3>📍 Location</h3>
+            <p>FAAN Quarters, Ikeja, Lagos</p>
+        </div>
+        <div class="info-item">
+            <h3>💸 Price Range</h3>
+            <p>₦5,000 – ₦15,000 per person</p>
+        </div>
+        <div class="info-item">
+            <h3>🎤 Sunday Special</h3>
+            <p>Live Karaoke Night</p>
+        </div>
+        <div class="info-item">
+            <h3>⭐ Rated 4.0/5</h3>
+            <p>Based on 745 Reviews</p>
+        </div>
+    </div>
+
+    <section class="menu-section">
+        <h2 class="section-title">Crowd Favorites</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1625127589332-9f6946cb3215?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="menu-content">
+                    <h3>Beer Tower</h3>
+                    <p>Perfect for groups. Ice cold draught beer served in our signature towers.</p>
+                    <span class="price">Best Seller</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="menu-content">
+                    <h3>Spicy Pepper Soup</h3>
+                    <p>Fresh fish or goat meat pepper soup. The perfect companion for your drink.</p>
+                    <span class="price">Hot & Spicy</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="menu-content">
+                    <h3>Rice & Stew</h3>
+                    <p>Delicious, affordable meals including Jollof, Fried Rice, and savory stews.</p>
+                    <span class="price">₦5,000+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2 class="section-title" style="font-size: 2rem;">What People Say</h2>
+        
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"The atmosphere is lovely. The Special Sunday Karaoke Night is awesome. I just love the Aviators Lounge."</p>
+            <p style="margin-top: 10px; font-weight: bold; color: var(--highlight);">- Okpetsagha Precious</p>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <p>"Atmosphere is calm and serene. Where you can have your business meetings, or just sit and enjoy nature."</p>
+            <p style="margin-top: 10px; font-weight: bold; color: var(--highlight);">- Asuquo Juliet Enobong</p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Aviators Lounge</h3>
+        <p>FAAN Quarters, Ikeja, Lagos 000079</p>
+        <br>
+        <p>Services: Dine-in · Takeaway · No-contact delivery</p>
+        <a href="tel:08176900613" class="footer-btn">Call 0817 690 0613</a>
+    </footer>
+
+</body>
+</html>

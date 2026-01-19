@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Tower Suites | Ikeja GRA Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PREMIUM THEME SETUP --- */
+        :root {
+            --primary: #0F172A; /* Midnight Navy - Very Corporate */
+            --gold: #D4AF37;    /* Metallic Gold - Luxury */
+            --light-gold: #F3E5AB;
+            --white: #ffffff;
+            --grey: #F8FAFC;
+            --text: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif; /* Elegant font for headings */
+            color: var(--primary);
+        }
+
+        a { text-decoration: none; transition: 0.3s ease; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--primary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-btn {
+            background: var(--gold);
+            color: var(--primary);
+            padding: 10px 25px;
+            font-weight: 700;
+            border-radius: 2px; /* Sharp corners for business look */
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .nav-btn:hover { background: var(--white); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Dark overlay for text readability */
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--white);
+        }
+
+        .rating-badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(var(--light-gold), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .cta-group { display: flex; gap: 15px; }
+
+        .primary-btn {
+            background: var(--gold);
+            color: var(--primary);
+            padding: 15px 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .secondary-btn {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 15px 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .primary-btn:hover { background: var(--white); }
+        .secondary-btn:hover { background: var(--gold); color: var(--primary); }
+
+        /* --- HIGHLIGHTS --- */
+        .location-strip {
+            background: var(--grey);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 2rem;
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .feature-box h3 { font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Manrope', sans-serif; font-weight: 700; }
+        .feature-box span { color: var(--gold); font-size: 1.5rem; display: block; margin-bottom: 10px; }
+
+        /* --- ADDRESS & CONTACT --- */
+        .contact-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .address-block {
+            max-width: 400px;
+        }
+
+        .address-block h2 { color: var(--white); margin-bottom: 1rem; }
+        .address-text { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; }
+
+        .phone-display {
+            font-size: 2.5rem;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .neighborhood-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .cta-group { flex-direction: column; }
+            .contact-section { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Strong Tower</div>
+        <a href="tel:09091239876" class="nav-btn">Book Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="rating-badge">★ 4.4 Excellent Rating (29 Reviews)</div>
+        <h1>The Heart of Ikeja GRA</h1>
+        <p>Experience premium hospitality at 41A Sobo Arobiodu Street. Located minutes from the airport, surrounded by Lagos' finest dining and business hubs.</p>
+        
+        <div class="cta-group">
+            <a href="tel:09091239876" class="primary-btn">Check Availability</a>
+            <a href="#location" class="secondary-btn">View Location</a>
+        </div>
+    </section>
+
+    <section class="location-strip">
+        <h2 style="color: var(--primary); margin-bottom: 10px;">Why Stay With Us?</h2>
+        <p>Rated "Great for Visitors" in the administrative capital.</p>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <span>✈️</span>
+                <h3>Airport Proximity</h3>
+                <p>Located in the secure GRA, we are just a short drive from Murtala Muhammed International Airport.</p>
+            </div>
+            <div class="feature-box">
+                <span>🛡️</span>
+                <h3>Secure & Serene</h3>
+                <p>Enjoy the peace of mind that comes with staying in Ikeja's most exclusive Government Residential Area.</p>
+            </div>
+            <div class="feature-box">
+                <span>🍽️</span>
+                <h3>Prime Access</h3>
+                <p>Walking distance to international restaurants, Bamboo Lounge, and high-end business centers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="location">
+        <div class="address-block">
+            <h2>Visit Us</h2>
+            <p class="address-text">
+                We are situated at a prime location for business and leisure travelers.
+            </p>
+            <p style="border-left: 2px solid var(--gold); padding-left: 15px;">
+                41A Sobo Arobiodu St,<br>
+                Ikeja GRA, Lagos 101233
+            </p>
+            <div class="neighborhood-tag">Neighborhood: Ikeja GRA</div>
+        </div>
+
+        <div class="address-block" style="text-align: center;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Reservations Desk</p>
+            <a href="tel:09091239876" class="phone-display">0909 123 9876</a>
+            <p style="opacity: 0.7;">Call us for corporate rates and long-stay discounts.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Strong Tower Suites. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbaag Hotel | 4-Star Luxury in Osogbo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #2C3E50; /* Dark Slate */
+            --accent: #E67E22;  /* Bronze/Orange for a warm welcome */
+            --light-bg: #F4F6F7;
+            --white: #ffffff;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 20px;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .cta-btn {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .cta-btn:hover { background: #d35400; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.6)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .stars { color: #f1c40f; font-size: 1.5rem; margin-bottom: 10px; }
+
+        /* --- AMENITIES GRID --- */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* --- DETAILS & CONTACT --- */
+        .details-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .info-item span {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .nav-links { display: none; } /* Hidden on mobile for simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">Arbaag Hotel</div>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="tel:08035667901" class="cta-btn">Book Now</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="stars">★★★★☆</div>
+        <h1>Experience 4-Star Comfort</h1>
+        <p>Located in the serene Olude Area of Osogbo. Perfect for visitors, business travelers, and families.</p>
+        <a href="tel:08035667901" class="cta-btn" style="padding: 15px 40px; font-size: 1.1rem;">Call 0803 566 7901</a>
+    </section>
+
+    <section class="section" id="amenities">
+        <h2 class="section-title">Why Choose Arbaag?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🐾</span>
+                <h3>Pet-Friendly</h3>
+                <p>We are one of the few hotels in Osogbo that welcomes your furry friends.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✈️</span>
+                <h3>Airport Shuttle</h3>
+                <p>Convenient shuttle services to keep your travel stress-free.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">❄️</span>
+                <h3>Air Conditioned</h3>
+                <p>Enjoy full climate control in all our standard and luxury suites.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Plan Your Stay</h2>
+        <div class="details-container">
+            <div class="info-box">
+                <h3>Location & Hours</h3>
+                <br>
+                <div class="info-item">
+                    <span>📍</span> 
+                    <div>
+                        <strong>Address:</strong><br>
+                        Olude Area, Osogbo, Osun State
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span>🕒</span> 
+                    <div>
+                        <strong>Check-out:</strong><br>
+                        12:00 PM
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box" style="background: var(--primary); color: white;">
+                <h3 style="color: white;">Contact Us</h3>
+                <p style="opacity: 0.8; margin-bottom: 20px;">Contact us directly for the best rates and current availability.</p>
+                
+                <div class="info-item">
+                    <span>📞</span> 
+                    <a href="tel:08035667901" style="color: white; font-weight: bold; font-size: 1.3rem;">0803 566 7901</a>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 0.9rem;">
+                    <em>Rated "Good for visitors" (2.9/5) based on sightseeing and recreation accessibility.</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Arbaag Hotel. All rights reserved.</p>
+        <p>Olude Area, Osogbo</p>
+    </footer>
+
+</body>
+</html>

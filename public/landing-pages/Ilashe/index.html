@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilashe Private Beach | The Lagos Getaway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- TROPICAL LUXURY THEME --- */
+        :root {
+            --ocean: #006994;     /* Deep Sea Blue */
+            --sand: #fdf5e6;      /* Warm Sand */
+            --teal: #20B2AA;      /* Light Tropical Water */
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --gold: #D4AF37;      /* Luxury Accent */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--sand);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--ocean);
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ocean);
+            text-transform: uppercase;
+        }
+
+        .book-btn {
+            background: var(--ocean);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .book-btn:hover { background: var(--teal); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Image of a tropical beach or pool house */
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* --- FEATURES / LOGISTICS --- */
+        .features-strip {
+            background: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        .icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+        /* --- EXPERIENCE SECTION --- */
+        .experience {
+            padding: 5rem 5%;
+            background: var(--ocean);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .experience h2 { color: var(--white); margin-bottom: 1rem; font-size: 2.5rem; }
+
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 2rem 0;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            min-width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- REVIEWS --- */
+        .reviews-section {
+            padding: 5rem 5%;
+            background: var(--sand);
+        }
+
+        .review-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0 20px 0 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stars { color: var(--gold); letter-spacing: 2px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #0b2433;
+            color: #8fa6b8;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-link { color: var(--teal); font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .image-gallery { justify-content: flex-start; } /* Scrollable on mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Ilashe Private Beach</div>
+        <a href="#contact" class="book-btn">Book a Beach House</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Escape the Lagos Hustle</h1>
+        <p>A serene private island getaway. Just a 40-minute cruise from Ikoyi.</p>
+        <a href="#contact" class="book-btn" style="padding: 15px 40px; font-size: 1.1rem; background: var(--teal);">Plan Your Visit</a>
+    </section>
+
+    <section class="features-strip">
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">The Ilashe Experience</h2>
+        <p>Private. Exclusive. Serene.</p>
+
+        <div class="grid-container">
+            <div class="feature-card">
+                <span class="icon">🛥️</span>
+                <h3>Verified Boat Transport</h3>
+                <p>Avoid the hassle. We partner with trusted, safe, and comfortable boat operators for your 40-min cruise from the mainland.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🏡</span>
+                <h3>Luxury Beach Houses</h3>
+                <p>Stay in exclusive beachfront villas with private swimming pools, 24/7 power, and ocean views.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">🌴</span>
+                <h3>Nature & Serenity</h3>
+                <p>Clean air, swaying palm trees, and crashing sea waves. The perfect hideaway from the city noise.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h2>Your Weekend Awaits</h2>
+        <p>From quad biking to sunset sips.</p>
+        
+        <div class="image-gallery">
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                <div class="gallery-caption">Private Pools</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                <div class="gallery-caption">Clean Shoreline</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                <div class="gallery-caption">Boat Cruises</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="font-size: 2rem;">Guest Stories</h2>
+            <div class="stars" style="font-size: 1.5rem;">★★★★☆ 4.4 Rating</div>
+        </div>
+
+        <div class="review-box">
+            <p>"The Ilashe beach is very quiet and surrounded with attractive palm trees and beach houses with outdoor swimming pools. It is an amazing hideaway if you want to relax."</p>
+            <p style="margin-top: 15px; font-weight: bold; color: var(--ocean);">- Tee Baby (Local Guide)</p>
+        </div>
+
+        <div class="review-box">
+            <p>"A very nice serene place... It's a place you can visit if you want to get away with loved ones from the craziness of Lagos. Very quiet and peaceful, clean air and sea waves."</p>
+            <p style="margin-top: 15px; font-weight: bold; color: var(--ocean);">- Anita Enyekwe</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="color: var(--white);">Ready for the Island Life?</h2>
+        <p style="margin-bottom: 20px;">Book a beach house or organize your boat transport today.</p>
+        <br>
+        <a href="#" class="book-btn" style="background: var(--teal);">Contact via WhatsApp</a>
+        <br><br><br>
+        <p>&copy; 2026 Ilashe Private Beach Management.</p>
+        <p>Lagos 102102, Nigeria</p>
+    </footer>
+
+</body>
+</html>
