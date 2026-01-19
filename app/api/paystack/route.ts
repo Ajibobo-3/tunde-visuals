@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const { amount, email } = await request.json();
+    const body = await request.json();
+    const { amount, email } = body;
 
     // 1. Validation check
     if (!amount || !email) {
@@ -10,8 +11,9 @@ export async function POST(request: Request) {
     }
 
     // 2. Secret Key check
-    if (!process.env.PAYSTACK_SECRET_KEY) {
-      console.error("PAYSTACK_SECRET_KEY is not defined in .env");
+    const secretKey = process.env.PAYSTACK_SECRET_KEY;
+    if (!secretKey) {
+      console.error("CRITICAL: PAYSTACK_SECRET_KEY is missing in Vercel Settings");
       return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
@@ -19,25 +21,20 @@ export async function POST(request: Request) {
     const response = await fetch('https://api.paystack.co/transaction/initialize', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+        Authorization: `Bearer ${secretKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        amount: amount * 100, // Converts Naira to Kobo
+        amount: Math.round(amount * 100), // Ensures it is a clean integer in Kobo
         email: email,
-        // LINKING STEP: This tells Paystack to redirect to your timer page
-        callback_url: "http://localhost:3000/success", 
+        // UPDATED: Points to your live Vercel domain instead of localhost
+        callback_url: "https://visuals-by-tunde.vercel.app/success", 
         metadata: {
           custom_fields: [
             {
               display_name: "Service Type",
               variable_name: "service_type",
               value: "Web3 Landing Page Deployment"
-            },
-            {
-              display_name: "Project Source",
-              variable_name: "project_source",
-              value: "Tunde_Visuals_Portfolio"
             }
           ]
         }
@@ -46,18 +43,17 @@ export async function POST(request: Request) {
 
     const data = await response.json();
 
-    // 4. Handle Paystack-specific errors
-    if (!data.status) {
+    if (!response.ok || !data.status) {
+      console.error("Paystack API Error:", data.message);
       return NextResponse.json({ 
         error: data.message || "Paystack initialization failed" 
       }, { status: 400 });
     }
 
-    // 5. Return the full data (including authorization_url) to the frontend
-    return NextResponse.json(data);
+    return NextResponse.json(data.data);
 
-  } catch (error) {
-    console.error("Payment Error:", error);
+  } catch (error: any) {
+    console.error("Detailed Payment Error:", error.message);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
