@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+// Forces this route to be dynamic so it doesn't cache the request
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
     const body = await request.json().catch(() => ({}));
@@ -32,8 +35,8 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         amount: amountInKobo,
         email: email,
-        // CRITICAL: Ensure this folder exists at app/success/page.tsx
-        callback_url: "https://visuals-by-tunde.vercel.app/success", 
+        // UPDATED: Pointing to your current working deployment URL
+        callback_url: "https://tunde-visuals-c888-ajibobos-projects.vercel.app/success", 
         metadata: {
           custom_fields: [
             {
@@ -59,6 +62,7 @@ export async function POST(request: Request) {
       }, { status: 400 });
     }
 
+    // Return the authorization data to the frontend
     return NextResponse.json(data.data);
 
   } catch (error: any) {
