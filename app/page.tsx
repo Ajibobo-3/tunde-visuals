@@ -19,6 +19,27 @@ const projects = [
     desc: "A high-fidelity editorial terminal for decentralized narrative verification.",
     link: "https://article-terminal.vercel.app",
     color: "from-orange-600 to-orange-400"
+  },
+  {
+    title: "Aotel Luxury",
+    client: "Hospitality",
+    desc: "A premium boutique hotel landing page featuring immersive motion design and booking flows.",
+    link: "/landing-pages/Aotel/index.html",
+    color: "from-amber-600 to-yellow-500"
+  },
+  {
+    title: "Arbaag Suites",
+    client: "Architecture",
+    desc: "Modern architectural and interior design landing page with high-conversion layouts.",
+    link: "/landing-pages/Arbaag/index.html",
+    color: "from-emerald-700 to-teal-400"
+  },
+  {
+    title: "Aviators Experience",
+    client: "Travel & Aviation",
+    desc: "Exclusive travel landing page designed for luxury aviation and premium experiences.",
+    link: "/landing-pages/Aviators/index.html",
+    color: "from-slate-700 to-slate-500"
   }
 ];
 
