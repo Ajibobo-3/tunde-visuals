@@ -7,13 +7,6 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: "Harbor V2",
-    client: "Harbor Ecosystem",
-    desc: "A refined evolution of the Harbor interface, featuring enhanced liquidity tracking and a high-performance UI.",
-    link: "/landing-pages/Harbor V2/index.html",
-    color: "from-indigo-600 to-purple-500"
-  },
-  {
     title: "Boop Terminal",
     client: "$BOOP (Arbitrum)",
     desc: "Interactive community terminal with live boop counter and reward verification.",
@@ -49,6 +42,7 @@ const projects = [
     color: "from-slate-700 to-slate-500"
   }
 ];
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#050505] text-white">
@@ -77,7 +71,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* NEW PHOTO INTEGRATION */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -123,7 +116,9 @@ export default function Home() {
                 target="_blank" 
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border-b border-white/20 pb-1 hover:border-blue-400 transition-colors"
               >
-                Explore Live Terminal <ChevronRight size={14} />
+                {project.client === "Hospitality" || project.client === "Architecture" || project.client === "Travel & Aviation" 
+                  ? "Explore Live Site" 
+                  : "Explore Live Terminal"} <ChevronRight size={14} />
               </a>
             </motion.div>
           ))}
