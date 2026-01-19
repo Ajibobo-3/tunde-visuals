@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, ChevronRight, Zap, MessageSquare, CreditCard } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -25,33 +26,45 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#050505] text-white">
       {/* --- HERO / ABOUT SECTION --- */}
-      <section className="py-32 px-6 max-w-5xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-xs uppercase tracking-[0.5em] text-blue-500 font-bold mb-8">The Architect</h2>
-          <p className="text-4xl md:text-6xl font-serif italic text-white leading-tight mb-8">
-            Bridging the gap between <span className="text-blue-400 text-glow">visual storytelling</span> and functional Web3 infrastructure.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+      <section className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-xs uppercase tracking-[0.5em] text-blue-500 font-bold mb-6">The Architect</h2>
+            <h1 className="text-6xl md:text-8xl font-black italic mb-4 uppercase tracking-tighter">Tunde.</h1>
+            <p className="text-3xl md:text-4xl font-serif italic text-slate-300 leading-tight mb-8">
+              Bridging the gap between <span className="text-blue-400">visual storytelling</span> and Web3 infrastructure.
+            </p>
             <div className="flex flex-col gap-6">
               <p className="text-slate-400 leading-relaxed text-lg">
                 I am a Website Landing Page Developer and Graphics Designer. Currently balancing my passion for digital architecture with my journey as a medical student. 
               </p>
-              {/* BUTTON 1: Consultation/Contact */}
               <Link href="/contact">
-                <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-400 transition-colors w-fit">
+                <button className="flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-400 transition-colors w-fit">
                   Get in Touch <MessageSquare size={16} />
                 </button>
               </Link>
             </div>
-            <p className="text-slate-400 leading-relaxed text-lg">
-              My work focuses on creating high-performance terminals and interactive interfaces for emerging protocols on Arbitrum and Solana.
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* NEW PHOTO INTEGRATION */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10 bg-[#0F0F0F]"
+          >
+            <Image 
+              src="/images/tunde-headshot.jpg" 
+              alt="Tunde - Web3 Architect"
+              fill
+              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              priority
+            />
+          </motion.div>
+        </div>
       </section>
 
       {/* --- PORTFOLIO CAROUSEL --- */}
@@ -96,9 +109,8 @@ export default function Home() {
           <Zap className="text-blue-500 mx-auto mb-6" size={48} />
           <h2 className="text-3xl md:text-5xl font-black italic uppercase mb-6 tracking-tighter">Ready to Build?</h2>
           <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto uppercase tracking-widest text-[10px] font-bold">
-            Secure your spot in the build queue via Paystack.
+            Standardizing the visual identity of Web3.
           </p>
-          {/* BUTTON 2: CHANGED TO /PAY FOR PAYSTACK LINK */}
           <Link href="/pay">
             <button className="flex items-center gap-3 mx-auto bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)]">
               Start Project <CreditCard size={18} />
