@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aotel Hotel Ikeja | The Allen Sanctuary</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Prata&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- BOUTIQUE VARIABLES --- */
+        :root {
+            --sage: #5D7A68;         /* Calming Green */
+            --sage-dark: #3F5246;
+            --cream: #F5F3EF;        /* Soft White */
+            --charcoal: #2C2C2C;
+            --gold-accent: #D4AF37;
+            --font-head: 'Prata', serif;
+            --font-body: 'Manrope', sans-serif;
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+
+        h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--sage-dark); }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        p { color: #555; margin-bottom: 1.5rem; font-size: 1rem; }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--sage);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: 6rem 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .text-center { text-align: center; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--sage);
+        }
+
+        .btn-primary {
+            background-color: var(--sage);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--sage-dark);
+            border-color: var(--sage-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--sage);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--sage);
+            color: white;
+        }
+
+        /* --- NAV --- */
+        nav {
+            padding: 2rem 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-head); font-size: 1.8rem; color: var(--sage-dark); letter-spacing: 2px; }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .hero-img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 55%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: var(--cream);
+            padding: 4rem 4rem 4rem 0; /* Creates overlap effect */
+            max-width: 600px;
+            margin-left: 5%;
+            box-shadow: 20px 0 50px rgba(0,0,0,0.05);
+        }
+
+        /* --- AMENITIES --- */
+        .amenities-bar {
+            background: white;
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .icon-flex { display: flex; justify-content: space-between; flex-wrap: wrap; text-align: center; gap: 2rem; }
+        .icon-item i { font-size: 2rem; color: var(--sage); margin-bottom: 1rem; }
+        .icon-item span { display: block; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: var(--sage-dark); }
+
+        /* --- ROOMS --- */
+        .room-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .room-card:hover { transform: translateY(-5px); }
+        .room-img { height: 300px; background-size: cover; background-position: center; }
+        .room-details { padding: 2rem; }
+        .price { color: var(--gold-accent); font-family: var(--font-head); font-size: 1.8rem; margin: 1rem 0; display: block; }
+
+        /* --- LOCATION --- */
+        .location { background-color: var(--sage-dark); color: white; }
+        .location h2, .location p { color: white; }
+        .map-btn {
+            background: white; color: var(--sage-dark); padding: 1rem 2rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #222; color: #888; padding: 3rem 0; text-align: center; font-size: 0.9rem; }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(63, 82, 70, 0.9); /* Sage overlay */
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: white; padding: 3rem; width: 90%; max-width: 450px;
+            border-radius: 4px; position: relative;
+        }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--sage); }
+        
+        .form-input {
+            width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd;
+            font-family: var(--font-body); background: #f9f9f9;
+        }
+        .form-input:focus { outline: none; border-color: var(--sage); background: white; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; height: auto; }
+            .hero-img { position: relative; width: 100%; height: 400px; }
+            .hero-content { padding: 3rem 2rem; margin: 0; box-shadow: none; width: 100%; text-align: center; }
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <span class="logo">AOTEL</span>
+            <button onclick="openModal()" class="btn btn-primary" style="padding: 0.7rem 1.5rem;">Book Now</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="subtitle">Ikeja, Lagos</span>
+            <h1>A Quiet Sanctuary <br>in the Heart of Allen.</h1>
+            <p>Escape the noise of the city. Aotel offers a refined, peaceful retreat just steps away from the vibrant energy of Alade Market and the Fela Shrine.</p>
+            <div style="margin-top: 2rem;">
+                <button onclick="openModal()" class="btn btn-primary">Check Availability</button>
+                <a href="#amenities" class="btn btn-outline" style="margin-left: 10px;">Explore</a>
+            </div>
+        </div>
+        <div class="hero-img"></div>
+    </header>
+
+    <div class="amenities-bar" id="amenities">
+        <div class="container icon-flex">
+            <div class="icon-item">
+                <i class="fas fa-swimming-pool"></i>
+                <span>Relaxing Pool</span>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-coffee"></i>
+                <span>Free Breakfast</span>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-wifi"></i>
+                <span>Fast Wi-Fi</span>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-wheelchair"></i>
+                <span>Accessible</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div class="room-card">
+                    <div class="room-img" style="background-image: url('https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');"></div>
+                    <div class="room-details">
+                        <span class="subtitle">Accommodations</span>
+                        <h3>The Standard Room</h3>
+                        <p>A minimalist haven featuring air-conditioning, premium linens, and room service.</p>
+                        <span class="price">₦33,449 <span style="font-size: 0.9rem; color: #888; font-family: var(--font-body);">/ night</span></span>
+                        <button onclick="openModal()" class="btn btn-primary" style="width: 100%;">Reserve This Room</button>
+                    </div>
+                </div>
+                <div>
+                    <span class="subtitle">The Experience</span>
+                    <h2>Affordable Luxury</h2>
+                    <p>Why compromise? At Aotel, we believe comfort shouldn't cost a fortune.</p>
+                    <p>Located on Owodunni Street, we provide free parking and easy access to the airport, making us the top choice for smart travelers in Ikeja.</p>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--sage); margin-right: 10px;"></i> Rated 4.3 for Location</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--sage); margin-right: 10px;"></i> Free Cancellation (Until 24h)</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--sage); margin-right: 10px;"></i> Secure Environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding location">
+        <div class="container text-center">
+            <span class="subtitle" style="color: rgba(255,255,255,0.7);">Neighborhood</span>
+            <h2>Vibrant Allen Avenue</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem auto;">
+                We are minutes away from the cultural Fela Kuti Shrine and the shopping hubs of Alade. 
+                2 Owodunni St, Amore Street, Allen, Ikeja.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://www.google.com/maps/search/?api=1&query=Aotel+Hotel+Ikeja+Lagos" target="_blank" class="map-btn">
+                    <i class="fas fa-map-marked-alt"></i> View on Map
+                </a>
+                <a href="tel:08142123782" class="map-btn" style="background: transparent; color: white; border: 1px solid white;">
+                    <i class="fas fa-phone-alt"></i> 0814 212 3782
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>AOTEL</h3>
+            <p>© 2026 Aotel Hotel Ikeja. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">Secure Your Stay</h3>
+            
+            <form onsubmit="sendToWhatsapp(event)">
+                <input type="text" id="name" class="form-input" placeholder="Guest Name" required>
+                <input type="tel" id="phone" class="form-input" placeholder="Phone Number" required>
+                
+                <label style="font-size: 0.8rem; font-weight: 600; color: #666;">Check-in Date</label>
+                <input type="date" id="date" class="form-input" required>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Book via WhatsApp</button>
+            </form>
+            <p style="text-align: center; font-size: 0.8rem; margin-top: 1rem; color: #888;">No payment required now.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('bookingModal')) {
+                closeModal();
+            }
+        }
+
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var date = document.getElementById('date').value;
+            var phone = document.getElementById('phone').value;
+            
+            // Hotel's real number formatted for API
+            var hotelNumber = "2348142123782"; 
+            
+            var text = `Hello Aotel, I would like to book a room.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Check-in:* ${date}%0A*Rate:* ₦33,449`;
+            
+            var url = `https://wa.me/${hotelNumber}?text=${text}`;
+            window.open(url, '_blank').focus();
+            
+            closeModal();
+        }
+    </script>
+</body>
+</html>
