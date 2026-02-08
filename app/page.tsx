@@ -1,10 +1,10 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ChevronRight, Zap, MessageSquare, Code2, LineChart, Activity, Globe } from 'lucide-react';
+import { ChevronRight, Zap, MessageSquare, Code2, LineChart, Activity, Globe } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-// --- STEP 1: IMPORT THE COMPONENT ---
+// --- COMPONENT IMPORT ---
 import WhaleTicker from '../components/WhaleTicker';
 
 const projects = [
@@ -12,10 +12,11 @@ const projects = [
     title: "Solana Whale Tracker",
     client: "Autonomous Data Systems",
     desc: "A Python-based tracking engine monitoring high-value Solana transactions to trigger real-time growth signals and alerts.",
-    link: "https://github.com/yourusername/whale-tracker", 
+    // FIXED: Points to your real backend repository
+    link: "https://github.com/Ajibobo-3/whale-tracker-backend", 
     icon: <Activity size={48} />,
     color: "from-green-600 to-emerald-900",
-    live: true // Flag to show the live ticker
+    live: true 
   },
   {
     title: "Boop Terminal",
@@ -120,7 +121,7 @@ export default function Home() {
               className="min-w-[350px] md:min-w-[450px] snap-center bg-[#0F0F0F] border border-white/10 rounded-3xl overflow-hidden group p-8 flex flex-col justify-between"
             >
               <div>
-                {/* --- CONDITIONAL RENDERING: SHOW TICKER IF PROJECT IS LIVE --- */}
+                {/* --- LIVE TICKER COMPONENT --- */}
                 {project.live ? (
                   <div className="mb-6 h-48 overflow-hidden rounded-2xl bg-black border border-white/5">
                     <WhaleTicker />
@@ -143,6 +144,7 @@ export default function Home() {
               <a 
                 href={project.link} 
                 target="_blank" 
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border-b border-white/20 pb-1 hover:border-[#D4AF37] transition-colors w-fit"
               >
                 View Documentation <ChevronRight size={14} />
